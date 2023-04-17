@@ -10,31 +10,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  formGroup!: FormGroup;
+  loginFormGroup!: FormGroup;
   constructor(private apiService: ApiService, private route: Router) { }
 
   ngOnInit(): void {
-    this.initForm();
+    this.loginForm();
   }
 
-  initForm() {
-    this.formGroup = new FormGroup({
+  loginForm() {
+    this.loginFormGroup = new FormGroup({
       identifier: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     })
   }
 
-  signIn() {
-    if (this.formGroup.valid) {
-      console.log(this.formGroup.value);
-      this.apiService.onSignIn(
-        this.formGroup.value
-      ).subscribe((res) => {
-        console.log(res?.jwt);
+  onLogIn() {
+    if (this.loginFormGroup.valid) {
+      this.apiService.logIn(
+        this.loginFormGroup.value
+      ).subscribe((res: any) => {                
         localStorage.setItem('token', res.jwt)
         this.route.navigate(['/home'])
+      }, (error) => {
+         if(error.status === 400){
+             //console.log(error)
+             alert("Invalid Username or Password.. Signup for new account!!!")
+         }
       })
-    }
+    } 
+  }
+
+  onRegister(event: any){
+    console.log(event);
+    
+    this.route.navigate(['./signup']);
+    event.preventDefault();
   }
 
 

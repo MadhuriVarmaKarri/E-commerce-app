@@ -2,3 +2,12 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25rem;
+    background-color:#4b4b7e;
+}

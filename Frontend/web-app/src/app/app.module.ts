@@ -4,13 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './common/header/header.component';
-import { FooterComponent } from './common/footer/footer.component';
+import { HeaderComponent } from './common/components/header/header.component';
+import { FooterComponent } from './common/components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './common/login/login/login.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './common/components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from './common/services/api.service';
+import { TokenInterceptor } from './common/interceptors/token.interceptor';
+import { SignupComponent } from './common/components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { ApiService } from './common/services/api.service';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { ApiService } from './common/services/api.service';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [ApiService],
+  providers: [ ApiService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { baseUrl } from 'src/app/environments/environment';
+import { baseUrl, loginUrl, signUpUrl } from 'src/app/environments/environment';
+import { Login, SignUp } from '../models/response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +10,15 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  onSignIn(data: any) : Observable<any>{    
-    return this.http.post<any>('http://localhost:1337/api/auth/local', data)
+  logIn(data: Login) {    
+    return this.http.post<Login>(loginUrl, data)
   }
 
+  signUp(data: SignUp) {
+     return this.http.post<SignUp>(signUpUrl, data)
+  }
   getProducts() {
-    return this.http.get(`${baseUrl}/products`)
+    return this.http.get(`${baseUrl}/products`, )
   }
 
 }
