@@ -34,7 +34,12 @@ export class SignupComponent implements OnInit{
         .subscribe((res: SignUp)=>{
            console.log(res);
            this.route.navigate(['/login'])     
-        })
+        }, (error) => {
+          if(error.status === 400){
+              //console.log(error)
+              alert("Email or Username are already taken.. Try with other credentials")
+          }
+       })
      }
   }
 }

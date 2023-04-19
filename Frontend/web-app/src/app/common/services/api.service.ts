@@ -18,7 +18,10 @@ export class ApiService {
      return this.http.post<SignUp>(signUpUrl, data)
   }
   getProducts() {
-    return this.http.get(`${baseUrl}/products`, )
+    return this.http.get(`${baseUrl}/api/products?populate=*`)
   }
 
+  getCategories(){
+    return this.http.get(`${baseUrl}/api/categories?populate=*`)
+  }
 }

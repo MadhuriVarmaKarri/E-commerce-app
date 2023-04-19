@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from './common/services/api.service';
 import { TokenInterceptor } from './common/interceptors/token.interceptor';
 import { SignupComponent } from './common/components/signup/signup.component';
+import { ProductComponent } from './home/products/product/product.component';
+import { CategoryComponent } from './home/category/category/category.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SignupComponent } from './common/components/signup/signup.component';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ProductComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

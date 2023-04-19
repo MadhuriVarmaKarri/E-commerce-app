@@ -1,0 +1,6 @@
+.cat-img{
+    width: 13rem !important;
+}
+.cat-img:hover {
+    cursor: pointer;
+  }
