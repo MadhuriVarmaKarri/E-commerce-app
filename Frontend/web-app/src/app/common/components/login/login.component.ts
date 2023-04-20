@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginFormGroup!: FormGroup;
-  constructor(private apiService: ApiService, private route: Router) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm();
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this.loginFormGroup.value
       ).subscribe((res: any) => {                
         localStorage.setItem('token', res.jwt)
-        this.route.navigate(['/home'])
+        this.router.navigate(['/home'])
       }, (error) => {
          if(error.status === 400){
              //console.log(error)
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
   onRegister(event: any){
     console.log(event);
     
-    this.route.navigate(['./signup']);
+    this.router.navigate(['./signup']);
     event.preventDefault();
   }
 

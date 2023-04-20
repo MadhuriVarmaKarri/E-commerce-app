@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/common/services/api.service';
 import { baseUrl } from 'src/app/environments/environment';
 
@@ -12,7 +13,7 @@ export class CategoryComponent implements OnInit {
   categories: any
   imgUrl = baseUrl;
 
-  constructor(private apiService: ApiService){}
+  constructor(private apiService: ApiService, private router: Router){}
 
   ngOnInit(): void {
     this.loadCategories();
@@ -23,5 +24,9 @@ export class CategoryComponent implements OnInit {
       console.log(res.data);
       this.categories = res.data
     });
+  }
+  onClickCategory(id: number){
+   // console.log(id);  
+     this.router.navigate([`/category/${id}`])
   }
 }

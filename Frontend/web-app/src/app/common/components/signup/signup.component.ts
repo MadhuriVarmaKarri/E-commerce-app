@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit{
 
   signUpFormGroup! : FormGroup;
 
-  constructor(private apiService: ApiService, private route: Router){}
+  constructor(private apiService: ApiService, private router: Router){}
 
   ngOnInit(): void {
     this.signUpForm();
@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit{
         this.apiService.signUp(this.signUpFormGroup.value)
         .subscribe((res: SignUp)=>{
            console.log(res);
-           this.route.navigate(['/login'])     
+           this.router.navigate(['/login'])     
         }, (error) => {
           if(error.status === 400){
               //console.log(error)

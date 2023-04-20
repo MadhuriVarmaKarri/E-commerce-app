@@ -8,6 +8,7 @@ import { baseUrl } from 'src/app/environments/environment';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  imgUrl = baseUrl;
 
   constructor(private apiService: ApiService) { }
 

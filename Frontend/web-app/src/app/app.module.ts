@@ -13,8 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from './common/services/api.service';
 import { TokenInterceptor } from './common/interceptors/token.interceptor';
 import { SignupComponent } from './common/components/signup/signup.component';
-import { ProductComponent } from './home/products/product/product.component';
-import { CategoryComponent } from './home/category/category/category.component';
+import { EachCatProductsComponent } from './each-cat-products/each-cat-products.component';
+import { ProductComponent } from './products/product/product.component';
+import { CategoryComponent } from './categories/category/category.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CategoryComponent } from './home/category/category/category.component';
     LoginComponent,
     SignupComponent,
     ProductComponent,
-    CategoryComponent
+    CategoryComponent,
+    EachCatProductsComponent
   ],
   imports: [
     BrowserModule,
