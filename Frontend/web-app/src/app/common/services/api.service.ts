@@ -24,4 +24,8 @@ export class ApiService {
   getCategories(){
     return this.http.get(`${baseUrl}/api/categories?populate=*`)
   }
+
+  getEachCategory(id: any){
+    return this.http.get(`${baseUrl}/api/products?populate=*&[filters][categories][id]=${id.id}`)
+  }
 }

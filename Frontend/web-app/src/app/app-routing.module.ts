@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './common/components/login/login.component';
 import { SignupComponent } from './common/components/signup/signup.component';
-import { EachCatProductsComponent } from './each-cat-products/each-cat-products.component';
-import { CategoryComponent } from './categories/category/category.component';
+import { EachCategoryComponent } from './eachCategory/eachCategory.component';
+import { SingleProductComponent } from './single-product/single-product.component';
 
 const routes: Routes = [
   {
@@ -20,7 +20,10 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
-    path: 'category/:id', component: EachCatProductsComponent,
+    path: 'category/:id', component: EachCategoryComponent,
+  },
+  {
+    path: 'product/:id', component: SingleProductComponent
   }
 ];
 

@@ -1,0 +1,17 @@
+<div class="container">
+    <h1 class="title">
+        {{catTitle}}
+    </h1>
+    <div class="d-flex flex-row">
+        <div *ngFor="let el of data">
+            <img [src]="imgBaseUrl+el.attributes.image.data.attributes.url" class="cat-img me-3 mt-3">
+            <div class="desc">
+                {{el.attributes.description}}
+            </div>
+            <div>
+               Price : {{el.attributes.price}}
+            </div>
+        </div>
+    </div>
+
+</div>

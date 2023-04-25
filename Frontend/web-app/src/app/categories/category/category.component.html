@@ -1,6 +1,6 @@
 
 <div class="container">
-    <div class="d-flex justify-content-center">
+    <div class="d-flex flex-wrap">
         <div *ngFor="let category of categories" (click)="onClickCategory(category.id)">
             <img [src]="imgUrl + category.attributes.image.data.attributes.url" class="cat-img me-3 mt-3">
         </div>

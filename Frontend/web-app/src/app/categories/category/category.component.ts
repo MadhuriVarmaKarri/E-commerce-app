@@ -25,8 +25,9 @@ export class CategoryComponent implements OnInit {
       this.categories = res.data
     });
   }
-  onClickCategory(id: number){
+  onClickCategory(id: any){
    // console.log(id);  
+     localStorage.setItem('Itemid', id)
      this.router.navigate([`/category/${id}`])
   }
 }
