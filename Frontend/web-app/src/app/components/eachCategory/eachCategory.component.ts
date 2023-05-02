@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ApiService } from '../common/services/api.service';
-import { baseUrl } from '../environments/environment';
+import { ApiService } from '../../common/services/api.service';
+import { baseUrl } from '../../environments/environment';
 
 @Component({
   selector: 'app-eachCategory',

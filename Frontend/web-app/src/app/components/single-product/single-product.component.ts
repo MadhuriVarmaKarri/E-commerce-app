@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../common/services/api.service';
+import { ApiService } from '../../common/services/api.service';
 import { ActivatedRoute, Params } from '@angular/router';
-import { baseUrl } from '../environments/environment';
+import { baseUrl } from '../../environments/environment';
 
 @Component({
   selector: 'app-single-product',

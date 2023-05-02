@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './common/components/login/login.component';
 import { SignupComponent } from './common/components/signup/signup.component';
-import { EachCategoryComponent } from './eachCategory/eachCategory.component';
-import { SingleProductComponent } from './single-product/single-product.component';
+import { EachCategoryComponent } from './components/eachCategory/eachCategory.component';
+import { SingleProductComponent } from './components/single-product/single-product.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
 
 const routes: Routes = [
@@ -16,6 +16,9 @@ const routes: Routes = [
   },
   {
     path: 'signup', component: SignupComponent
+  },
+  {
+    
   },
   {
     path: 'home', component: HomeComponent

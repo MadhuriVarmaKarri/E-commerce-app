@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { ApiService } from '../common/services/api.service';
+import { ApiService } from '../../common/services/api.service';
 
 @Component({
   selector: 'app-related-products',
