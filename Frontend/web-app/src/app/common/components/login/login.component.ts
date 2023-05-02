@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginFormGroup!: FormGroup;
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm();
@@ -26,10 +27,12 @@ export class LoginComponent implements OnInit {
 
   onLogIn() {
     if (this.loginFormGroup.valid) {
-      this.apiService.logIn(
+      this.authService.logIn(
         this.loginFormGroup.value
       ).subscribe((res: any) => {                
-        localStorage.setItem('token', res.jwt)
+       this.authService.setToken( res.jwt)
+       console.log(this.authService.isLoggedIn());
+       
         this.router.navigate(['/admin/home'])
       }, (error) => {
          if(error.status === 400){

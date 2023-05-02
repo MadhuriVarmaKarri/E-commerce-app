@@ -11,9 +11,9 @@
             {{data?.attributes.description}}
             <div class="my-4 d-flex">
                 <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item" (click)="decrement()" style="cursor: pointer"> - </li>
+                    <li class="list-group-item cursor" (click)="decrement()"> - </li>
                     <li class="list-group-item"> {{cartItemnumber}} </li>
-                    <li class="list-group-item" (click)="increment()"  style="cursor: pointer"> + </li>
+                    <li class="list-group-item cursor" (click)="increment()"> + </li>
                 </ul>
                 <button type="button" class="btn ms-3" style="background-color: #8a2be2;">
                     <img src="assets/cart-shopping.svg" width="20">

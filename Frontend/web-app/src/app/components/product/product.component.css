@@ -1,9 +1,6 @@
 .prod-img{
     width: 13rem !important;
 }
-.prod-img:hover {
-    cursor: pointer;
-  }
 .product-size{
     max-width: 13rem;
 }

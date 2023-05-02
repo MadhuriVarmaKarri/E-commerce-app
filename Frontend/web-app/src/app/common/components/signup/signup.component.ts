@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 import { SignUp } from '../../models/response.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit{
 
   signUpFormGroup! : FormGroup;
 
-  constructor(private apiService: ApiService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router){}
 
   ngOnInit(): void {
     this.signUpForm();
@@ -30,7 +31,7 @@ export class SignupComponent implements OnInit{
   onSignUp(){
      if(this.signUpFormGroup.valid){
         //  console.log(this.signUpFormGroup.value);
-        this.apiService.signUp(this.signUpFormGroup.value)
+        this.authService.signUp(this.signUpFormGroup.value)
         .subscribe((res: SignUp)=>{
            console.log(res);
            this.router.navigate(['/login'])     

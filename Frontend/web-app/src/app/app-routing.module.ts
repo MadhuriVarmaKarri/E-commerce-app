@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './common/components/login/login.component';
 import { SignupComponent } from './common/components/signup/signup.component';
 import { NotFoundComponent } from './common/components/not-found/not-found.component';
+import { AuthGuard } from './common/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
     path: 'signup', component: SignupComponent
   },
   {
-    path: 'admin', 
+    path: 'admin',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./modules/admin/admin.module').then((m)=>m.AdminModule) 
   },
   {
