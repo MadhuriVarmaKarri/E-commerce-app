@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this.loginFormGroup.value
       ).subscribe((res: any) => {                
         localStorage.setItem('token', res.jwt)
-        this.router.navigate(['/home'])
+        this.router.navigate(['/admin/home'])
       }, (error) => {
          if(error.status === 400){
              //console.log(error)

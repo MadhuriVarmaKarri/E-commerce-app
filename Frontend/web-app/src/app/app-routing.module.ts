@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './common/components/login/login.component';
 import { SignupComponent } from './common/components/signup/signup.component';
-import { EachCategoryComponent } from './components/eachCategory/eachCategory.component';
-import { SingleProductComponent } from './components/single-product/single-product.component';
-import { NotFoundComponent } from './common/not-found/not-found.component';
+import { NotFoundComponent } from './common/components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -18,16 +15,8 @@ const routes: Routes = [
     path: 'signup', component: SignupComponent
   },
   {
-    
-  },
-  {
-    path: 'home', component: HomeComponent
-  },
-  {
-    path: 'categories/:id', component: EachCategoryComponent,
-  },
-  {
-    path: 'products/:id', component: SingleProductComponent
+    path: 'admin', 
+    loadChildren: () => import('./modules/admin/admin.module').then((m)=>m.AdminModule) 
   },
   {
     path: '**', component: NotFoundComponent

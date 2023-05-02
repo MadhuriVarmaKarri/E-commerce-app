@@ -15,10 +15,12 @@ import { TokenInterceptor } from './common/interceptors/token.interceptor';
 import { SignupComponent } from './common/components/signup/signup.component';
 import { EachCategoryComponent } from './components/eachCategory/eachCategory.component';
 import { ProductComponent } from './components/product/product.component';
-import { CategoryComponent } from './categories/category/category.component';
+import { CategoryComponent } from './components/category/category.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { RelatedProductsComponent } from './components/related-products/related-products.component';
-import { NotFoundComponent } from './common/not-found/not-found.component';
+import { NotFoundComponent } from './common/components/not-found/not-found.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { NotFoundComponent } from './common/not-found/not-found.component';
     EachCategoryComponent,
     SingleProductComponent,
     RelatedProductsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AdminDashboardComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

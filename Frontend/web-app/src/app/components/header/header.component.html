@@ -1,14 +1,15 @@
 <div class="p-3 bg-info d-flex justify-content-between">
    <div>
-      <span> Home </span>
-      <span class="mx-3"> About </span>
-      <span> Categories </span>
+      <span class="cursor"> Home </span>
+      <span class="mx-3 cursor" routerLink="../about"> About </span>
+      <span routerLink="../categories" class="cursor"> Categories </span>
    </div>
    <div>
-      <span class="fw-400"> JSDEVSTORE </span>
+      <span class="fw-400 cursor"> JSDEVSTORE </span>
    </div>
    <div>
-      <img src="assets/search.svg" alt="image" width="30" height="30" class="mx-3">
-      <img src="assets/cart-shopping.svg" alt="image" width="30" height="30">
+      <img src="assets/search.svg" alt="image" width="30" height="30" class="mx-3 cursor">
+      <img src="assets/cart-shopping.svg" alt="image" width="30" height="30" class="cursor">
+      <span class="mx-3 cursor" routerLink="/login">Logout</span>
    </div>
 </div>

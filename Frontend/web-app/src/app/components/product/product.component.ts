@@ -28,6 +28,6 @@ export class ProductComponent implements OnInit {
   }
 
   onClickProduct(id: number){
-      this.router.navigate([`/products/${id}`])
+      this.router.navigate([`admin/products/${id}`])
   }
 }
