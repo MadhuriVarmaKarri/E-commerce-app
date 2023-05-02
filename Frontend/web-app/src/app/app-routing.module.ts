@@ -5,6 +5,7 @@ import { LoginComponent } from './common/components/login/login.component';
 import { SignupComponent } from './common/components/signup/signup.component';
 import { EachCategoryComponent } from './eachCategory/eachCategory.component';
 import { SingleProductComponent } from './single-product/single-product.component';
+import { NotFoundComponent } from './common/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -20,10 +21,13 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
-    path: 'category/:id', component: EachCategoryComponent,
+    path: 'categories/:id', component: EachCategoryComponent,
   },
   {
-    path: 'product/:id', component: SingleProductComponent
+    path: 'products/:id', component: SingleProductComponent
+  },
+  {
+    path: '**', component: NotFoundComponent
   }
 ];
 

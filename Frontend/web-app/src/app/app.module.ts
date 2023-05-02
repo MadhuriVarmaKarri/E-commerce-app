@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './common/components/header/header.component';
-import { FooterComponent } from './common/components/footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './common/components/login/login.component';
@@ -17,6 +17,8 @@ import { EachCategoryComponent } from './eachCategory/eachCategory.component';
 import { ProductComponent } from './products/product/product.component';
 import { CategoryComponent } from './categories/category/category.component';
 import { SingleProductComponent } from './single-product/single-product.component';
+import { RelatedProductsComponent } from './related-products/related-products.component';
+import { NotFoundComponent } from './common/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { SingleProductComponent } from './single-product/single-product.componen
     ProductComponent,
     CategoryComponent,
     EachCategoryComponent,
-    SingleProductComponent
+    SingleProductComponent,
+    RelatedProductsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -18,11 +18,10 @@ export class EachCategoryComponent implements OnInit {
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      const id = params;
+    this.route.params.subscribe((params: any) => {
+      const id = params.id;      
       this.apiService.getEachCategory(id).subscribe((res: any) => {
         this.data = res.data
-         console.log(this.data);
         this.catTitle = this.data[0].attributes.categories.data[0].attributes.title
         // this.data?.map((el: any) => {
         //   this.imgUrl = baseUrl + el.attributes.image.data.attributes.url

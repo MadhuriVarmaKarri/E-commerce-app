@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/common/services/api.service';
 import { baseUrl } from 'src/app/environments/environment';
 
@@ -10,7 +11,7 @@ import { baseUrl } from 'src/app/environments/environment';
 export class ProductComponent implements OnInit {
   imgUrl = baseUrl;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   products: any;
   prodImgUrl : any;
@@ -22,15 +23,11 @@ export class ProductComponent implements OnInit {
   loadProducts() {
     this.apiService.getProducts()
       .subscribe((res: any) => {
-         console.log(res.data);
         this.products = res.data;
-        this.products.map((el: any) => {
-         // console.log(el.attributes.image);
-          // (el.attributes.image.data).map((el: any)=>{
-          //   console.log(baseUrl + el.attributes.url);
-
-          // })
-        })
       })
+  }
+
+  onClickProduct(id: number){
+      this.router.navigate([`/products/${id}`])
   }
 }

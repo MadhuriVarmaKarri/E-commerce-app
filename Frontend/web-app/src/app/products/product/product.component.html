@@ -2,7 +2,7 @@
 <div class="container">
     <h2 class="mt-5">Popular Products</h2>
     <div class="d-flex flex-wrap">
-        <div *ngFor="let product of products" class="product-size ms-1 mt-3">
+        <div *ngFor="let product of products" class="product-size ms-1 mt-3" (click)="onClickProduct(product.id)">
             <img [src]="imgUrl + product.attributes.image.data.attributes.url" class="prod-img">
             <div class="mx-1">{{product.attributes.title}}</div>
             <div class="mx-1">{{product.attributes.price}}</div>

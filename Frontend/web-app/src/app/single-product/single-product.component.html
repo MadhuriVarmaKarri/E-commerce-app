@@ -1,1 +1,26 @@
-<p>single-product works!</p>
+<div class="container">
+    <div class="d-flex mt-4 align-items-center">
+        <img [src]="imgUrl+data?.attributes.image.data.attributes.url" width="300" height="300">
+        <div class="ms-4">
+            <h6>
+                {{data?.attributes.title}}
+            </h6>
+            <div class="my-3">
+                <b> {{data?.attributes.price}} /-</b>
+            </div>
+            {{data?.attributes.description}}
+            <div class="my-4 d-flex">
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item" (click)="decrement()" style="cursor: pointer"> - </li>
+                    <li class="list-group-item"> {{cartItemnumber}} </li>
+                    <li class="list-group-item" (click)="increment()"  style="cursor: pointer"> + </li>
+                </ul>
+                <button type="button" class="btn ms-3" style="background-color: #8a2be2;">
+                    <img src="assets/cart-shopping.svg" width="20">
+                    Add to cart</button>
+            </div>
+            <span><b>Category : </b>{{data?.attributes.categories.data[0].attributes.title}}</span>
+        </div>
+    </div>
+    <app-related-products [categoryId]="data?.attributes?.categories?.data[0]?.id"></app-related-products>
+</div>
