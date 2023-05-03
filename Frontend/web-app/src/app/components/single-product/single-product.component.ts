@@ -12,7 +12,8 @@ export class SingleProductComponent implements OnInit{
 productId: any
 data: any;
 imgUrl = baseUrl;
-cartItemnumber = 1;
+quantity = 1;
+latestQnty!: number;
 constructor(private apiService: ApiService, private route: ActivatedRoute){}
   
   ngOnInit(): void {
@@ -31,12 +32,19 @@ constructor(private apiService: ApiService, private route: ActivatedRoute){}
   }
 
   increment(){
-    this.cartItemnumber = this.cartItemnumber+1;    
+    this.quantity = this.quantity+1;    
   }
 
   decrement(){
-    if(this.cartItemnumber >= 1){
-      this.cartItemnumber = this.cartItemnumber-1 
+    if(this.quantity >= 1){
+      this.quantity = this.quantity-1 
     }
+  }
+
+  onAddToCart(qnty : number){
+     this.data.attributes.quantity = qnty
+     this.latestQnty =  this.data.attributes.quantity
+     console.log(this.data, this.latestQnty);
+     this.quantity = 1
   }
 }

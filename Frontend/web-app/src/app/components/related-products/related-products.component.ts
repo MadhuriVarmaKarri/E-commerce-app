@@ -23,7 +23,7 @@ export class RelatedProductsComponent implements OnInit{
     if(simpleChange['categoryId'].currentValue) {
       this.apiService.getRelatedproducts(this.productId,this.categoryId).subscribe((res:any)=>{
         this.data = res?.data  
-        console.log(this.data);
+      //  console.log(this.data);
      })
     }
   }

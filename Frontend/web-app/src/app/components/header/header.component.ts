@@ -8,8 +8,16 @@ import { AuthService } from 'src/app/common/services/auth.service';
 })
 export class HeaderComponent {
 
+  openAddToCart: boolean = false;
   constructor(private authService: AuthService){}
 
+  addToCart(){
+    this.openAddToCart = true;
+  }
+
+  onCloseCart(isOpenCart: boolean){
+    this.openAddToCart = isOpenCart
+  }
   onLogout(){
     this.authService.logout()
   }

@@ -1,6 +1,6 @@
 <div class="p-3 bg-info d-flex justify-content-between">
    <div>
-      <span class="cursor"> Home </span>
+      <span class="cursor" [routerLink]="['/admin/home']"> Home </span>
       <span class="mx-3 cursor" routerLink="../about"> About </span>
       <span routerLink="../categories" class="cursor"> Categories </span>
    </div>
@@ -9,7 +9,13 @@
    </div>
    <div>
       <img src="assets/search.svg" alt="image" width="30" height="30" class="mx-3 cursor">
-      <img src="assets/cart-shopping.svg" alt="image" width="30" height="30" class="cursor">
+      <span>
+         <img src="assets/cart-shopping.svg" alt="image" width="30" height="30" class="position-relative cursor" (click)="addToCart()">
+         <span class="badge bg-primary rounded-circle position-absolute bg-danger translate-middle">5</span>
+      </span>
+      <ng-container *ngIf="openAddToCart">
+         <app-add-to-cart [openAddToCart]="openAddToCart" (closeAddToCart)="onCloseCart($event)"></app-add-to-cart>
+      </ng-container>
       <span class="mx-3 cursor" (click)="onLogout()">Logout</span>
    </div>
 </div>

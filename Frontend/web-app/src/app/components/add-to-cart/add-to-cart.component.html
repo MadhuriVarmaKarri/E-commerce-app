@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="content bg-light">
+        <div>
+            <div class="d-flex justify-content-between pt-2 px-2 border">
+                <h6>Shopping Cart</h6>
+                <img src="assets/close.svg" width="20" height="20" (click)="onCloseCart()" class="cursor">
+            </div>
+            <div class="p-2">
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item cursor" (click)="decrement()"> - </li>
+                    <li class="list-group-item"> {{quantity}} </li>
+                    <li class="list-group-item cursor" (click)="increment()"> + </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

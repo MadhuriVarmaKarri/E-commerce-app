@@ -22,6 +22,7 @@ import { NotFoundComponent } from './common/components/not-found/not-found.compo
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AboutComponent } from './components/about/about.component';
 import { ShortPipe } from './common/pipes/short.pipe';
+import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ShortPipe } from './common/pipes/short.pipe';
     NotFoundComponent,
     AdminDashboardComponent,
     AboutComponent,
-    ShortPipe
+    ShortPipe,
+    AddToCartComponent
   ],
   imports: [
     BrowserModule,
