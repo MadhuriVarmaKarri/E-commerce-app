@@ -5,8 +5,8 @@
     <div class="d-flex flex-row">
         <div *ngFor="let el of data">
             <img [src]="imgBaseUrl+el.attributes.image.data.attributes.url" class="cat-img me-3 mt-3">
-            <div class="desc">
-                {{el.attributes.description}}
+            <div>
+                {{el.attributes.description | short : 25}}
             </div>
             <div>
                Price : {{el.attributes.price}}

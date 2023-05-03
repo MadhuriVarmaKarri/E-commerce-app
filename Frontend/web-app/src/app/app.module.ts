@@ -21,6 +21,7 @@ import { RelatedProductsComponent } from './components/related-products/related-
 import { NotFoundComponent } from './common/components/not-found/not-found.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AboutComponent } from './components/about/about.component';
+import { ShortPipe } from './common/pipes/short.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AboutComponent } from './components/about/about.component';
     RelatedProductsComponent,
     NotFoundComponent,
     AdminDashboardComponent,
-    AboutComponent
+    AboutComponent,
+    ShortPipe
   ],
   imports: [
     BrowserModule,

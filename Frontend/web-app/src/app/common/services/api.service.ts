@@ -19,10 +19,15 @@ export class ApiService {
   }
 
   getEachCategory(id: any){
-    return this.http.get(`${baseUrl}/api/products?populate=*&[filters][categories][id]=${id}`)
+    return this.http.get(`${baseUrl}/api/products?populate=*&[filters][categories][id]=${id.id}`)
   }
 
   getSingleProduct(id: number){
     return this.http.get(`${baseUrl}/api/products/${id}?populate=*`)
+  }
+
+  getRelatedproducts(prodId: number, catId: number){
+    return this.http.get(`${baseUrl}/api/products?populate=*&[filters][id][$ne]=${prodId}
+    &filters[categories][id]=${catId}`)
   }
 }

@@ -22,5 +22,5 @@
             <span><b>Category : </b>{{data?.attributes.categories.data[0].attributes.title}}</span>
         </div>
     </div>
-    <app-related-products [categoryId]="data?.attributes?.categories?.data[0]?.id"></app-related-products>
+    <app-related-products [categoryId]="data?.attributes?.categories?.data[0]?.id" [productId]="data?.id"></app-related-products>
 </div>

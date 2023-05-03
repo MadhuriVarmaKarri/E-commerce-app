@@ -18,14 +18,13 @@ constructor(private apiService: ApiService, private route: ActivatedRoute){}
   ngOnInit(): void {
      this.route.params.subscribe((params: Params)=>{
       this.productId = params
-
       this.loadSingleProduct(this.productId.id)
      })
   }
 
   loadSingleProduct(id: number){
        this.apiService.getSingleProduct(id).subscribe((res:any)=>{
-        console.log(res.data?.attributes.categories.data[0].id);
+      //  console.log(res.data.id);
         this.data = res.data;
         this.productId = this.data?.attributes?.categories?.data[0]?.id
        })      

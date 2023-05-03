@@ -4,10 +4,3 @@
 .title{
     margin-top: 2.25rem !important;
 }
-.desc{
-    display: inline-block;
-    width: 15rem;
-    white-space: nowrap;
-    overflow: hidden !important;
-    text-overflow: ellipsis;
-}
