@@ -10,17 +10,17 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit{
+export class SignupComponent implements OnInit {
 
-  signUpFormGroup! : FormGroup;
+  signUpFormGroup!: FormGroup;
 
-  constructor(private authService: AuthService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.signUpForm();
   }
 
-  signUpForm(){
+  signUpForm() {
     this.signUpFormGroup = new FormGroup({
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -28,19 +28,16 @@ export class SignupComponent implements OnInit{
     })
   }
 
-  onSignUp(){
-     if(this.signUpFormGroup.valid){
-        //  console.log(this.signUpFormGroup.value);
-        this.authService.signUp(this.signUpFormGroup.value)
-        .subscribe((res: SignUp)=>{
-           console.log(res);
-           this.router.navigate(['/login'])     
+  onSignUp() {
+    if (this.signUpFormGroup.valid) {
+      //  console.log(this.signUpFormGroup.value);
+      this.authService.signUp(this.signUpFormGroup.value)
+        .subscribe((res: SignUp) => {
+          console.log(res);
+          this.router.navigate(['/login'])
         }, (error) => {
-          if(error.status === 400){
-              //console.log(error)
-              alert("Email or Username are already taken.. Try with other credentials")
-          }
-       })
-     }
+          //console.log(error)
+        })
+    }
   }
 }

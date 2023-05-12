@@ -30,15 +30,10 @@ export class LoginComponent implements OnInit {
       this.authService.logIn(
         this.loginFormGroup.value
       ).subscribe((res: any) => {                
-       this.authService.setToken( res.jwt)
-       console.log(this.authService.isLoggedIn());
-       
+       this.authService.setToken( res.jwt)       
         this.router.navigate(['/admin/home'])
       }, (error) => {
-         if(error.status === 400){
-             //console.log(error)
-             alert("Invalid Username or Password.. Signup for new account!!!")
-         }
+             console.log(error)
       })
     } 
   }

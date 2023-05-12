@@ -15,12 +15,13 @@
                     <li class="list-group-item"> {{quantity}} </li>
                     <li class="list-group-item cursor" (click)="increment()"> + </li>
                 </ul>
-                <button type="button" class="btn ms-3" style="background-color: #8a2be2;" (click)="onAddToCart(quantity)">
+                <button type="button" class="btn ms-3" style="background-color: #8a2be2;" (click)="onAddToCart(quantity,data)">
                     <img src="assets/cart-shopping.svg" width="20">
                     Add to cart</button>
             </div>
             <span><b>Category : </b>{{data?.attributes.categories.data[0].attributes.title}}</span>
         </div>
     </div>
+    <h3 class="mt-5">Related Products:</h3>
     <app-related-products [categoryId]="data?.attributes?.categories?.data[0]?.id" [productId]="data?.id"></app-related-products>
 </div>

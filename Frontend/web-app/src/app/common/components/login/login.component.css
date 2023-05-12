@@ -1,0 +1,12 @@
+.gradient-custom-2 {
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+.login-body{
+    position: absolute;
+    top: 35%;
+    left: 15%;
+}
+.detailContainer {
+    background-image: url("../../../../assets/Fashion.png");
+  }
+  /* C:\Marvin\E-commerce-app\Frontend\web-app\src\assets\Fashion.png */
