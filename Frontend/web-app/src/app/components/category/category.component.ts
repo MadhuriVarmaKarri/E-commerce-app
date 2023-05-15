@@ -21,7 +21,6 @@ export class CategoryComponent implements OnInit {
 
   loadCategories(){
     this.apiService.getCategories().subscribe((res: any)=>{
-      console.log(res.data);
       this.categories = res.data
     });
   }

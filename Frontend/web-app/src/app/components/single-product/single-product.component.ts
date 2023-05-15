@@ -47,8 +47,11 @@ export class SingleProductComponent implements OnInit {
 
 
   onAddToCart(qnty: number, data: any) {
-    // let cartQnty = 0;
     this.apiService.getCartItems().subscribe((res: any) => {
+
+      const count = res.data?.reduce((acc: number, el: any) => {
+        return acc + el.attributes?.quantity
+      }, 0);
 
       if (res.data.length > 0) {
         const avialbleItemInApi = res.data.find((el: any) => {
@@ -57,15 +60,9 @@ export class SingleProductComponent implements OnInit {
         if (avialbleItemInApi) {
           this.totalQnty = avialbleItemInApi.attributes.quantity + qnty;
           this.apiService.updateCartItem(avialbleItemInApi.id, this.totalQnty, data)
-          const count = res.data?.reduce((acc: number, el: any) => {
-            return acc + el.attributes?.quantity
-          }, 0);
           this.apiService.quantity.next(qnty + count)
         } else {
           this.apiService.setCartItem(qnty, data);
-          const count = res.data?.reduce((acc: number, el: any) => {
-            return acc + el.attributes?.quantity
-          }, 0);
           this.apiService.quantity.next(count + qnty)
         }
       }

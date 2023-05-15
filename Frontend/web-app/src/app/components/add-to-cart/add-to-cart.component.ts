@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AddToCartService } from 'src/app/common/services/add-to-cart.service';
 import { ApiService } from 'src/app/common/services/api.service';
+import { baseUrl } from 'src/app/environments/environment';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -9,6 +10,12 @@ import { ApiService } from 'src/app/common/services/api.service';
 })
 export class AddToCartComponent implements OnInit {
   quantity = 1;
+  cartItems: any;
+  imgUrl = baseUrl;
+  productImgUrl!: string;
+  productTitle!: string;
+  productPrice!: number;
+  totalPrice!: number;
 
   @Input() openAddToCart: any;
   @Output() closeAddToCart = new EventEmitter<boolean>();
@@ -17,26 +24,51 @@ export class AddToCartComponent implements OnInit {
 
 
   ngOnChanges() {
- 
+
   }
 
   ngOnInit(): void {
     this.getAllCartItems()
   }
 
-  getAllCartItems(){
-    this.apiService.getCartItems().subscribe((res:any)=>{
-      console.log(res.data);     
+  removeProductFromCart(id: number) {
+    this.apiService.deleteCartItem(id).subscribe((res) => {
+      this.getAllCartItems();
     })
   }
 
-  increment() {
-    this.quantity = this.quantity + 1;
+
+  getAllCartItems() {
+    this.apiService.getCartItems().subscribe((res: any) => {
+      console.log(res.data);
+      this.cartItems = res.data;
+      this.getTotalPrice();
+    })
   }
 
-  decrement() {
+  getTotalPrice() {
+    this.totalPrice = this.cartItems.reduce((acc: number, el: any) => {
+      return (acc + el.attributes.product.attributes.price) * el.attributes.quantity
+    }, 0)
+  }
+
+  increment(id: number) {
+    const index = this.cartItems.findIndex((item: any) => item.id === id)
+    this.cartItems[index].attributes.quantity += 1
+    const updateProduct = this.cartItems[index].attributes.product
+    const updatedQnty = this.cartItems[index].attributes.quantity
+    this.apiService.updateCartItem(id, updatedQnty, updateProduct)
+    this.getTotalPrice();
+  }
+
+  decrement(id: number) {
     if (this.quantity >= 1) {
-      this.quantity = this.quantity - 1
+      const index = this.cartItems.findIndex((item: any) => item.id === id)
+      this.cartItems[index].attributes.quantity -= 1
+      const updateProduct = this.cartItems[index].attributes.product
+      const updatedQnty = this.cartItems[index].attributes.quantity
+      this.apiService.updateCartItem(id, updatedQnty, updateProduct)
+      this.getTotalPrice();
     }
   }
 

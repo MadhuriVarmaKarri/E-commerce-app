@@ -7,6 +7,8 @@
     left: 15%;
 }
 .detailContainer {
-    background-image: url("../../../../assets/Fashion.png");
+    background-image: url("../../../../assets/fashionIcon.jpg");
+    background-size: 42rem 38rem;
   }
+  /*C:\Marvin\E-commerce-app\Frontend\web-app\src\assets\fashionIcon.jpg */
   /* C:\Marvin\E-commerce-app\Frontend\web-app\src\assets\Fashion.png */

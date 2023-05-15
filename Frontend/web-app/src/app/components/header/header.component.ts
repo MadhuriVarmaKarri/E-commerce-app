@@ -27,20 +27,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     //to get initial count from api
     this.apiService.getCartItems().subscribe((res: any) => {
-      console.log(res);
-     // this.count = res;
       this.count = res.data?.reduce((acc:number , el : any ) => {
         return acc + el.attributes?.quantity
     }, 0);
-    console.log( this.count);
     })
     
     //to get updated count from singleproduct comp
     this.apiService.quantity.subscribe((res) => {
-      console.log(this.count);
-      
      this.count = res
-      console.log(this.count);
     })
   }
 
