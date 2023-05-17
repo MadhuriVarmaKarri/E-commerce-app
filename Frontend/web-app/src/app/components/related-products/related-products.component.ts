@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ApiService } from '../../common/services/api.service';
 import { baseUrl } from 'src/app/environments/environment';
 
@@ -11,6 +11,7 @@ export class RelatedProductsComponent implements OnInit{
 
   @Input() categoryId : any;
   @Input() productId : any;
+  @Output() selectedProdId = new EventEmitter<number>();
   data: any;
   imgUrl = baseUrl;
   constructor(private apiService: ApiService){
@@ -18,19 +19,19 @@ export class RelatedProductsComponent implements OnInit{
   }
 
   ngOnChanges(simpleChange: SimpleChanges) {
-    //console.log(this.productId,this.categoryId);
     
-    if(simpleChange['categoryId'].currentValue) {
+    // if(simpleChange['categoryId'].currentValue) {
+     // console.log((simpleChange));
+      
       this.apiService.getRelatedproducts(this.productId,this.categoryId).subscribe((res:any)=>{
         this.data = res?.data  
-      //  console.log(this.data);
      })
-    }
+    // }
   }
 
   ngOnInit(): void {
   }
-  callEachCategory(id:number){
-    
+  onClickProduct(prodId: number){
+     this.selectedProdId.emit(prodId);
   }
 }

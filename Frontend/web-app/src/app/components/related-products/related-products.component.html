@@ -1,7 +1,7 @@
 <div class="container">
     <div class="d-flex flex-wrap">
-        <div *ngFor="let eachEl of data">
-            <img [src]="imgUrl + eachEl.attributes.image.data.attributes.url" class="cat-img me-3 mt-3">
+        <div *ngFor="let eachEl of data" (click)="onClickProduct(eachEl.id)">
+            <img [src]="imgUrl + eachEl.attributes.image.data.attributes.url" class="cat-img me-3 mt-3 cursor">
             <div>{{eachEl.attributes.title | short : 20}}</div>
             <div>{{eachEl.attributes.price}}</div>
         </div>

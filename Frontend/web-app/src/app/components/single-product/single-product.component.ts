@@ -18,7 +18,6 @@ export class SingleProductComponent implements OnInit {
   totalQnty: any;
   constructor(private apiService: ApiService,
     private route: ActivatedRoute,
-    private addToCartService: AddToCartService
   ) { }
 
   ngOnInit(): void {
@@ -30,7 +29,7 @@ export class SingleProductComponent implements OnInit {
 
   loadSingleProduct(id: number) {
     this.apiService.getSingleProduct(id).subscribe((res: any) => {
-      this.data = res.data;
+      this.data = res?.data;
       this.productId = this.data?.id
     })
   }
@@ -74,4 +73,7 @@ export class SingleProductComponent implements OnInit {
     })
   }
 
+  callNewProduct(id: number){
+    this.loadSingleProduct(id) 
+  }
 }

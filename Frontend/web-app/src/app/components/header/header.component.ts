@@ -38,10 +38,6 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  getCartQuantity() {
-
-  }
-
   addToCart() {
     this.openAddToCart = true;
   }

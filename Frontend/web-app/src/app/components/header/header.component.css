@@ -1,0 +1,15 @@
+span {
+    color: white;
+}
+
+.active {
+    color:#8a2be2;
+}
+
+a {
+    color: white;
+}
+
+ul.nav a:hover { 
+    color:#8a2be2;
+}

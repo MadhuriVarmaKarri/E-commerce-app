@@ -1,6 +1,6 @@
 .content {
     /* height: 100vh; */
-    width: 15rem;
+    width: 17rem;
     position: absolute;
     top: 0%;
     right: 0%
@@ -38,6 +38,15 @@
 }
 
 .checkout {
+    background-color: #8a2be2;
+    width: 12rem
+}
+
+.emptyCart {
+    margin-left: -1.3rem;
+}
+.returnToShop {
+    margin-left: 2.0rem;
     background-color: #8a2be2;
     width: 12rem
 }

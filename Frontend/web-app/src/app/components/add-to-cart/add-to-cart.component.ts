@@ -12,11 +12,9 @@ export class AddToCartComponent implements OnInit {
   quantity = 1;
   cartItems: any;
   imgUrl = baseUrl;
-  productImgUrl!: string;
-  productTitle!: string;
-  productPrice!: number;
   totalPrice!: number;
-
+  emptyCart = false;
+  
   @Input() openAddToCart: any;
   @Output() closeAddToCart = new EventEmitter<boolean>();
 
@@ -32,16 +30,21 @@ export class AddToCartComponent implements OnInit {
   }
 
   removeProductFromCart(id: number) {
-    this.apiService.deleteCartItem(id).subscribe((res) => {
+    this.apiService.deleteCartItem(id).subscribe((res: any) => {
+      alert (`Do you really want to delete this ${res.id} ?`)
       this.getAllCartItems();
     })
   }
 
 
   getAllCartItems() {
+
     this.apiService.getCartItems().subscribe((res: any) => {
       console.log(res.data);
       this.cartItems = res.data;
+      if(this.cartItems.length === 0) {
+        this.emptyCart = true;
+      }
       this.getTotalPrice();
     })
   }

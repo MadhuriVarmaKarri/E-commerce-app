@@ -1,21 +1,47 @@
-<div class="p-3 bg-info d-flex justify-content-between">
+<div class="p-3 bg-black d-flex justify-content-between align-items-center">
    <div>
-      <span class="cursor" [routerLink]="['/admin/home']"> Home </span>
-      <span class="mx-3 cursor" [routerLink]="['/admin/about']"> About </span>
-      <span [routerLink]="['/admin/categories']" class="cursor"> Categories </span>
+      <ul class="nav">
+         <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/admin/home']" routerLinkActive="active">
+               Home
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/admin/about']" routerLinkActive="active">
+               About
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/admin/categories']" routerLinkActive="active">
+               Categories
+            </a>
+         </li>
+      </ul>
    </div>
    <div>
-      <span class="fw-400 cursor"> JSDEVSTORE </span>
+      <ul class="nav">
+         <li class="nav-item">
+            <a class="nav-link fw-500 cursor"> LOTUS STORE </a>
+         </li>
+      </ul>
    </div>
-   <div>
-      <img src="assets/search.svg" alt="image" width="30" height="30" class="mx-3 cursor">
-      <span>
-         <img src="assets/cart-shopping.svg" alt="image" width="30" height="30" class="position-relative cursor" (click)="addToCart()">
-         <span class="badge bg-primary rounded-circle position-absolute bg-danger translate-middle">{{count}}</span>
-      </span>
-      <ng-container *ngIf="openAddToCart">
-         <app-add-to-cart [openAddToCart]="openAddToCart" (closeAddToCart)="onCloseCart($event)"></app-add-to-cart>
-      </ng-container>
-      <span class="mx-3 cursor" (click)="onLogout()">Logout</span>
+   <div class="d-flex flex-row">
+      <ul class="nav">
+         <li class="nav-link">
+            <img src="assets/searchBar.jpg" alt="image" width="30" height="30" class="cursor">
+         </li>
+         <li class="nav-link" (click)="addToCart()">
+            <img src="assets/shoppingCart.png" alt="image" width="30" height="30" class="position-relative cursor">
+            <span class="badge bg-primary rounded-circle position-absolute bg-danger translate-middle">{{count}}</span>
+         </li>
+         <ng-container *ngIf="openAddToCart">
+            <app-add-to-cart [openAddToCart]="openAddToCart" (closeAddToCart)="onCloseCart($event)"></app-add-to-cart>
+         </ng-container>
+         <li class="nav-item">
+            <a class="nav-link cursor" routerLinkActive="active" (click)="onLogout()">
+               Logout
+            </a>
+         </li>
+      </ul>
    </div>
 </div>
